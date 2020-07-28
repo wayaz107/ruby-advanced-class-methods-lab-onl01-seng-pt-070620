@@ -17,16 +17,17 @@ def self.create
   song
 end
 
- def self.new_by_name(title)
-song = self.new
-song.name = title
-song
+ def self.new_by_name(song_name)
+new_song = self.new
+new_song.name = song_name
+new_song
 end
 
- def self.create_by_name(title)
-   song = self.create
-   song.name = title
-   song
+ def self.create_by_name(song_name)
+   new_song = self.new
+   new_song.name = song_name
+   @@all << new_song
+   new_song
  end
 
  def self.find_by_name(name)
