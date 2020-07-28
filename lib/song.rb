@@ -12,9 +12,9 @@ class Song
 
 
 def self.create
-  song = self.new
-  self.all << song
-  song
+  new_song = self.new
+  @@all << new_song
+  new_song
 end
 
  def self.new_by_name(song_name)
@@ -34,13 +34,8 @@ end
    @@all.find {|song|song.name == name}
  end
 
-def self.find_or_create_by_name(title)
-  result = self.find_by_name(title)
-  if result
-    result
-  else
-    self.create_by_name(title)
-  end
+def self.find_or_create_by_name(song_name)
+ self.find_by_name(song_name) || self.create_by_name(song_name)
 end
 
 def self.alphabetical
