@@ -17,11 +17,6 @@ def self.create
   song
 end
 
-def include(song)
- @@all.include?(song)
- puts song
- end
-
  def self.new_by_name(title)
 song = self.new
 song.name = title
